@@ -21,7 +21,10 @@
             "project1.zip", "backup.tar.gz", "invoice.pdf", "meeting_notes.docx",
             "budget.xlsx", "receipt.jpg", "code.py", "config.ini", "readme.md",
             "diary.txt", "todo.txt", "script.js", "image.jpg", "log.log",
-            "settings.json", "data.json", "backup.sql", "notes.md", "report.docx"
+            "settings.json", "data.json", "backup.sql", "notes.md", "report.docx",
+            "secret.docx", "passwords.txt", "confidential.pdf", "private.jpg",
+            "hidden.zip", "encrypted.mp4", "classified.doc", "secure.xlsx",
+            "vault.dat", "keyfile.key"
         ];
 
         let currentFileIndex = 0;
@@ -56,15 +59,10 @@
         }
 
         function displayFiles() {
-            setInterval(() => {
-                const fileName = fileNames[Math.floor(Math.random() * fileNames.length)];
-                typeEffect(fileName);
-            }, 5000);
+            typeEffect(fileNames[currentFileIndex]);
         }
 
         displayFiles();
     </script>
 </body>
 </html>
-
-

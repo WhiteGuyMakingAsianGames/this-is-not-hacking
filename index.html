@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Display</title>
+    <style>
+        body {
+            background-color: black;
+            color: green;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const fileNames = [
+            "file1.txt", "data.csv", "image.png", "document.docx", "presentation.pptx",
+            "notes.txt", "report.pdf", "archive.zip", "music.mp3", "video.mp4",
+            "Ha ha ha.exe", "example.doc", "test.jpg", "sample.txt", "log.txt"
+        ];
+
+        let currentFileIndex = 0;
+
+        function typeEffect(fileName) {
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < fileName.length) {
+                    document.body.innerHTML += fileName[i];
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    document.body.innerHTML += '<br>';
+                    if (currentFileIndex < fileNames.length - 1) {
+                        currentFileIndex++;
+                        typeEffect(fileNames[currentFileIndex]);
+                    } else {
+                        processingScreen();
+                    }
+                }
+            }, 50);
+        }
+
+        function processingScreen() {
+            setTimeout(() => {
+                document.body.innerHTML = "Processing...";
+                setTimeout(() => {
+                    document.body.innerHTML = '';
+                    displayFiles();
+                }, 2000);
+            }, 2000);
+        }
+
+        function displayFiles() {
+            setInterval(() => {
+                const fileName = fileNames[Math.floor(Math.random() * fileNames.length)];
+                typeEffect(fileName);
+            }, 5000);
+        }
+
+        displayFiles();
+    </script>
+</body>
+</html>

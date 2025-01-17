@@ -25,7 +25,10 @@
             "secret.docx", "passwords.txt", "confidential.pdf", "private.jpg",
             "hidden.zip", "encrypted.mp4", "classified.doc", "secure.xlsx",
             "vault.dat", "keyfile.key", "newfile1.txt", "newfile2.txt", "newfile3.txt",
-            "fake_router1.txt", "fake_router2.txt", "fake_router3.txt"
+            "fake_router1.txt", "fake_router2.txt", "fake_router3.txt",
+            "extrafile1.txt", "extrafile2.txt", "extrafile3.txt", "extrafile4.txt",
+            "extrafile5.txt", "extrafile6.txt", "extrafile7.txt", "extrafile8.txt",
+            "extrafile9.txt", "extrafile10.txt"
         ];
 
         let currentFileIndex = 0;
@@ -78,14 +81,14 @@
             document.body.innerHTML = "Installing computerwipe.exe<br>";
             let progress = 0;
             const interval = setInterval(() => {
-                progress += 10;
+                progress += 5;  // Slower progress
                 document.body.innerHTML = `Installing computerwipe.exe<br><br>[=====          ] ${progress}%`;
                 if (progress >= 100) {
                     clearInterval(interval);
                     document.body.innerHTML = '';
                     document.body.innerHTML = "Prank successful! Your files are safe!";
                 }
-            }, 500);
+            }, 1000);  // Slower interval
         }
 
         function displayFiles() {

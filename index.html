@@ -7,7 +7,7 @@
     <style>
         body {
             background-color: black;
-            color: #00FF00; /* Brighter green */
+            color: #32CD32; /* Lime green */
             font-family: "Courier New", Courier, monospace;
         }
     </style>
@@ -24,7 +24,7 @@
             "settings.json", "data.json", "backup.sql", "notes.md", "report.docx",
             "secret.docx", "passwords.txt", "confidential.pdf", "private.jpg",
             "hidden.zip", "encrypted.mp4", "classified.doc", "secure.xlsx",
-            "vault.dat", "keyfile.key"
+            "vault.dat", "keyfile.key", "newfile1.txt", "newfile2.txt", "newfile3.txt"
         ];
 
         let currentFileIndex = 0;
@@ -53,7 +53,18 @@
                 document.body.innerHTML = "Processing...";
                 setTimeout(() => {
                     document.body.innerHTML = '';
-                    displayFiles();
+                    transferringScreen();
+                }, 2000);
+            }, 2000);
+        }
+
+        function transferringScreen() {
+            setTimeout(() => {
+                document.body.innerHTML = "Transferring to different device";
+                setTimeout(() => {
+                    document.body.innerHTML += '<br><br>';
+                    document.body.innerHTML += '<img src="phone.png" alt="Phone" width="50" height="50">';
+                    document.body.innerHTML += '<br>Transfer';
                 }, 2000);
             }, 2000);
         }
@@ -66,3 +77,4 @@
     </script>
 </body>
 </html>
+

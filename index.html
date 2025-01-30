@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Display</title>
+    <title>Hacking Simulation</title>
     <style>
         body {
             background-color: black;
             color: #32CD32; /* Lime green */
             font-family: "Courier New", Courier, monospace;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background-color: #32CD32;
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -17,7 +28,7 @@
         const fileNames = [
             "file1.txt", "data.csv", "image.png", "document.docx", "presentation.pptx",
             "notes.txt", "report.pdf", "archive.zip", "music.mp3", "video.mp4",
-            "Ha ha ha.exe", "example.doc", "test.jpg", "sample.txt", "log.txt",
+            "example.doc", "test.jpg", "sample.txt", "log.txt",
             "project1.zip", "backup.tar.gz", "invoice.pdf", "meeting_notes.docx",
             "budget.xlsx", "receipt.jpg", "code.py", "config.ini", "readme.md",
             "diary.txt", "todo.txt", "script.js", "image.jpg", "log.log",
@@ -46,7 +57,7 @@
                         processingScreen();
                     }
                 }
-            }, 37);  // Reduced interval time for 25% faster typing
+            }, Math.random() * 100);  // Randomized interval time for more realistic typing
         }
 
         function processingScreen() {
@@ -55,7 +66,7 @@
                 setTimeout(() => {
                     document.body.innerHTML = '';
                     transferringScreen();
-                }, 2000);
+                }, 3000);  // Longer delay for processing
             }, 2000);
         }
 
@@ -69,7 +80,7 @@
                     setTimeout(() => {
                         document.body.innerHTML = '';
                         fakeInstallScreen();
-                    }, 2000);
+                    }, 3000);  // Longer delay for transfer
                 }, 2000);
             }, 2000);
         }
@@ -78,8 +89,8 @@
             document.body.innerHTML = "Installing computerwipe.exe<br>";
             let progress = 0;
             const interval = setInterval(() => {
-                progress += 5;  // Slower progress
-                document.body.innerHTML = `Installing computerwipe.exe<br><br>[=====          ] ${progress}%`;
+                progress += 5;  // Slow progress
+                document.body.innerHTML = `Installing computerwipe.exe<br><br>[${'='.repeat(progress / 5)}${' '.repeat(20 - progress / 5)}] ${progress}%`;
                 if (progress >= 100) {
                     clearInterval(interval);
                     document.body.innerHTML = '';

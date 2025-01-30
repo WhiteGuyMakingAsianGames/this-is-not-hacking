@@ -21,6 +21,11 @@
                 opacity: 0;
             }
         }
+        .ascii-art {
+            position: absolute;
+            font-size: 20px;
+            line-height: 1.2;
+        }
     </style>
 </head>
 <body>
@@ -94,9 +99,37 @@
                 if (progress >= 100) {
                     clearInterval(interval);
                     document.body.innerHTML = '';
-                    document.body.innerHTML = "Prank successful! You got pranked, ha ha!";
+                    showAsciiArt();
                 }
             }, 1000);  // Slower interval
+        }
+
+        function showAsciiArt() {
+            const asciiArt = document.createElement('div');
+            asciiArt.classList.add('ascii-art');
+            asciiArt.innerHTML = `
+                <pre>
+                 .-''''''-. 
+                .'          '. 
+               /   O      O   \\ 
+              :           '    : 
+              |                |   
+              :    .------.    : 
+               \\  '        '  / 
+                '.          .' 
+                  '-......-'  
+                </pre>`;
+            document.body.appendChild(asciiArt);
+
+            let moveInterval = setInterval(() => {
+                asciiArt.style.top = Math.random() * (window.innerHeight - asciiArt.clientHeight) + 'px';
+                asciiArt.style.left = Math.random() * (window.innerWidth - asciiArt.clientWidth) + 'px';
+            }, 500);
+
+            setTimeout(() => {
+                clearInterval(moveInterval);
+                document.body.innerHTML = "Prank successful! You got pranked, ha ha!";
+            }, 20000);  // 20 seconds delay
         }
 
         function displayFiles() {

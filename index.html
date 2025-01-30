@@ -25,10 +25,7 @@
             "secret.docx", "passwords.txt", "confidential.pdf", "private.jpg",
             "hidden.zip", "encrypted.mp4", "classified.doc", "secure.xlsx",
             "vault.dat", "keyfile.key", "newfile1.txt", "newfile2.txt", "newfile3.txt",
-            "fake_router1.txt", "fake_router2.txt", "fake_router3.txt",
-            "extrafile1.txt", "extrafile2.txt", "extrafile3.txt", "extrafile4.txt",
-            "extrafile5.txt", "extrafile6.txt", "extrafile7.txt", "extrafile8.txt",
-            "extrafile9.txt", "extrafile10.txt"
+            "router1.txt", "router2.txt", "router3.txt"
         ];
 
         let currentFileIndex = 0;
@@ -86,7 +83,7 @@
                 if (progress >= 100) {
                     clearInterval(interval);
                     document.body.innerHTML = '';
-                    document.body.innerHTML = "Prank successful! Your files are safe!";
+                    document.body.innerHTML = "Prank successful! You got pranked, ha ha!";
                 }
             }, 1000);  // Slower interval
         }

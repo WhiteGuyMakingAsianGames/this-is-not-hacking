@@ -7,13 +7,13 @@
     <style>
         body {
             background-color: black;
-            color: lime; /* Lime Green */
+            color: #32CD32; /* Lime green */
             font-family: "Courier New", Courier, monospace;
         }
         .cursor {
             display: inline-block;
             width: 10px;
-            background-color: lime;
+            background-color: #32CD32;
             animation: blink 1s step-start infinite;
         }
         @keyframes blink {
@@ -100,8 +100,6 @@
                     clearInterval(interval);
                     document.body.innerHTML = '';
                     showAsciiArt();
-                    startDownload('computerwipe.exe');
-                    startDownload('insert.exe');
                 }
             }, 1000);  // Slower interval
         }
@@ -113,11 +111,11 @@
                 <pre>
                  .-''''''-. 
                 .'          '. 
-               /   O      O   \ 
+               /   O      O   \\ 
               :           '    : 
               |                |   
               :    .------.    : 
-               \  '        '  / 
+               \\  '        '  / 
                 '.          .' 
                   '-......-'  
                 </pre>`;
@@ -132,16 +130,6 @@
                 clearInterval(moveInterval);
                 document.body.innerHTML = "Prank successful! You got pranked, ha ha!";
             }, 20000);  // 20 seconds delay
-        }
-
-        function startDownload(fileName) {
-            const blob = new Blob([''], { type: 'application/octet-stream' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         }
 
         function displayFiles() {
